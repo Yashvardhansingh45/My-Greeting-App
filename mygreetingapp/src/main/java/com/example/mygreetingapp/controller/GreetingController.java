@@ -1,6 +1,8 @@
 package com.example.mygreetingapp.controller;
 
+
 import com.example.mygreetingapp.service.GreetingService;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -10,7 +12,7 @@ import java.util.Map;
 @RequestMapping("/greeting")
 public class GreetingController {
 
-    private final GreetingService greetingService;
+   private final GreetingService greetingService;
 
     public GreetingController(GreetingService greetingService) {
         this.greetingService = greetingService;
@@ -19,6 +21,15 @@ public class GreetingController {
     public String getPersonalizedGreeting(@RequestParam(required = false) String firstName,
                                           @RequestParam(required = false) String lastName) {
         return "{\"message\": \"" + greetingService.getPersonalizedGreeting(firstName, lastName) + "\"}";
+    }
+
+
+
+    @GetMapping
+    public Map<String, String> getGreeting() {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Hello, this is a GET request!");
+        return response;
     }
 
 

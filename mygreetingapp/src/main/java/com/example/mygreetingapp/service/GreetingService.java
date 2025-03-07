@@ -15,5 +15,9 @@ public class GreetingService {
         } else {
             return "Hello World";
         }
+
+    public String getGreetingMessage() {
+        return "Hello World";
+
     }
 }
