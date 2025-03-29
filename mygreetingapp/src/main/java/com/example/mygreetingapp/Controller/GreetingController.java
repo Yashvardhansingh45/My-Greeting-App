@@ -1,12 +1,22 @@
 package com.example.mygreetingapp.Controller;
 
+
 import com.example.mygreetingapp.Service.GreetingService;
+
+
+import com.example.mygreetingapp.Service.GreetingService;
+
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
 
+ UC-3
+
+
+ master
     private final GreetingService greetingService;
 
     public GreetingController(GreetingService greetingService) {
@@ -14,6 +24,7 @@ public class GreetingController {
     }
 
     @GetMapping
+ UC-3
     public String getGreeting(
             @RequestParam(required = false) String firstName,
             @RequestParam(required = false) String lastName) {
@@ -21,6 +32,16 @@ public class GreetingController {
         return greetingService.getGreetingMessage(firstName, lastName);
     }
 
+
+    public String getGreeting() {
+        return greetingService.getGreetingMessage();
+    }
+
+    @GetMapping
+    public String getGreeting(){
+        return "Hello,this is a GET Request";
+    }
+ master
 
 
     @PostMapping
